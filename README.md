@@ -25,12 +25,19 @@ Before running the application, make sure you have installed python in your mach
     git clone https://github.com/Md-Roni024/Flask_API_Assignment
     ```  
 
-2. Go to the project directory and install dependencies
+2. Go to the project directory and setup virtual environment
     ```
-    cd Flask_Assignment
+    cd Flask_API_Assignment
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+
+3. Install dependecies
+    ```
     pip install -r requirements.txt
     ```
-3. Create a .env file then add your variables credentials as like:
+
+4. Create a .env file then add your variables credentials as like:
     ```
     DATABASE_USER=""
     DATABASE_PASSWORD=""
@@ -40,7 +47,7 @@ Before running the application, make sure you have installed python in your mach
     //Server Listening PORT
     PORT = ""
     ```
-4. Start the project
+5. Start the project
     ```
     python run.py
     ```

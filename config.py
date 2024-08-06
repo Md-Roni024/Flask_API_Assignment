@@ -21,6 +21,3 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_SECRET_KEY = '173120'
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
-
-# Print for debugging (remove in production)
-print(f"Attempting to connect to: postgresql://{Config.DATABASE_USER}@{Config.DATABASE_HOST}/{Config.DATABASE_NAME}")

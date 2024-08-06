@@ -235,8 +235,7 @@ def reset_password_request():
     
     # Set token expiry (e.g., 1 hour from now)
     expiry = datetime.utcnow() + timedelta(hours=1)
-
-    # Save the token and expiry to the user
+    
     user.reset_token = token
     user.reset_token_expiry = expiry
     db.session.commit()
