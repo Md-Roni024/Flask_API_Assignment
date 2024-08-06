@@ -267,11 +267,6 @@ For managing user information I build 5 endpoints.They are responsible for regis
 
   ```
 
-### Future Improvements
-
-
-
-
 ### Contributing
 - Contributing is an open invitation for collaboration on the project. You're encouraged to participate by opening issues for bugs or feature requests and submitting pull requests with your improvements or fixes. Your contributions help enhance and grow the project, making it better for everyone.
 
