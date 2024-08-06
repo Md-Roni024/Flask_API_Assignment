@@ -110,6 +110,7 @@ For managing user information I build 5 endpoints.They are responsible for regis
   <h5>URL: http://127.0.0.1:5000/users</h5>
   <h5>Only Role: Admin user can have access this route</h5>
   Success Response:
+
   ```json
     {
     "message": "All Users",
@@ -140,15 +141,12 @@ For managing user information I build 5 endpoints.They are responsible for regis
     }
 
   ```
-
   <h5>Status Code</h5>
 
-    ```
-    
+  ```
     Success: 200 OK
     Fail: 400 BAD REQUEST
-
-    ```
+  ```
 
 
 - <h3>Get Single User By ID</h3>
@@ -179,10 +177,11 @@ For managing user information I build 5 endpoints.They are responsible for regis
   <h5>Status Code</h5>
 
     ```
-    
     Success: 200 OK
-    Fail: 404 NOT FOUND
-
+    Fail: 
+    404 NOT FOUND
+    403	Forbidden
+    404	User not found
     ```
 
 - <h3>Delete User By ID</h3>
@@ -204,8 +203,9 @@ For managing user information I build 5 endpoints.They are responsible for regis
     ```
     
     Success: 200 OK
-    Fail: 404 NOT FOUND
-
+    Fail:
+    404 NOT FOUND
+    403	Forbidden
     ```
 
 
@@ -282,7 +282,9 @@ For managing user information I build 5 endpoints.They are responsible for regis
     ```
     
     Success: 200 OK
-    Fail: 401 UNAUTHORIZED
+    Fail:
+    401 UNAUTHORIZED
+    401 Invalid credentials
 
     ```
 - <h3>Reset password Request</h2>
@@ -299,6 +301,15 @@ For managing user information I build 5 endpoints.They are responsible for regis
   ```
   If Username is correct then A token will send to user mail.
 
+   <h5>Status Code</h5>
+
+    ```
+  Success:200 Password reset link sent
+  Fail:
+  400	Bad request
+  404	User not found
+
+  ```
 
 
 - <h3>Reset-password after getting token</h2>
@@ -313,8 +324,15 @@ For managing user information I build 5 endpoints.They are responsible for regis
     "new_password": "string"
   }
   ```
-  If token is correct then password wil rest successfully.
 
+  If token is correct then password wil rest successfully.
+     <h5>Status Code</h5>
+
+    ```
+  Success: 200	Password reset successful
+  Fail:
+  400 Invalid or expired token
+  
 
 
 ### Design Database Schema
