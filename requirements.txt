@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-JWT-Extended
+marshmallow
+marshmallow-sqlalchemy
+marshmallow-enum
+psycopg2-binary
+Flask-Mail
+Flask-Swagger-UI
+python-dotenv
