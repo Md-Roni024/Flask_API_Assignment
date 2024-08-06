@@ -4,9 +4,6 @@ from sqlalchemy import Enum as SqlEnum
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 
-# class UserRole(Enum):
-#     ADMIN = "Admin"
-#     USER = "User"
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

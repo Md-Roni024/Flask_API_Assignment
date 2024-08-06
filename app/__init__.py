@@ -1,14 +1,11 @@
 import os
-from flask import Flask, send_from_directory, send_file
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_mail import Mail
-from flask_swagger_ui import get_swaggerui_blueprint
 from flasgger import Swagger
-import os
-
-
+from flask_swagger_ui import get_swaggerui_blueprint
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -28,28 +25,19 @@ def create_app():
         from .models import User
         db.create_all()
 
-        # Define the path to the static swagger.json file
-    SWAGGER_URL = '/swagger'  # URL for exposing Swagger UI
-    API_URL = '/static/swagger.json'  # Our API URL (static file)
+    SWAGGER_URL = ''
+    API_URL = '/static/swagger.json'
 
-    # Initialize Swagger using the static JSON file
-    swagger_config = {
-        "headers": [],
-        "specs": [
-            {
-                "endpoint": 'apispec_1',
-                "route": API_URL,
-                "rule_filter": lambda rule: True,  # all in
-                "model_filter": lambda tag: True,  # all in
-            }
-        ],
-        "static_url_path": "/flasgger_static",
-        "swagger_ui": True,
-        "specs_route": SWAGGER_URL
-    }
-
-    Swagger(app, config=swagger_config)
-
+    swaggerui_blueprint = get_swaggerui_blueprint(
+        SWAGGER_URL,
+        API_URL,
+        config={
+            'app_name': "My Flask Application"
+        }
+    )
+    
+    app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+    Swagger(app)
 
     from .routes import userBlueprint
     app.register_blueprint(userBlueprint)

@@ -19,17 +19,6 @@ user_registration_schema = UserRegistrationSchema()
 user_login_schema = UserLoginSchema()
 
 
-
-#Route-1: Home Route or Root Route
-# @userBlueprint.route("/",methods=['GET'])
-# def home():
-#     return "Home Route"
-
-@userBlueprint.route('/')
-def swagger():
-    return render_template('swagger-ui.html')
-
-
 #Route-2: User Registration Route
 @userBlueprint.route('/register', methods=['POST'])
 def register():
