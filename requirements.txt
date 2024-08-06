@@ -9,3 +9,6 @@ psycopg2-binary
 Flask-Mail
 Flask-Swagger-UI
 python-dotenv
+flasgger
+datetime
+
