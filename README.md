@@ -231,20 +231,36 @@ For managing user information I build 5 endpoints.They are responsible for regis
     Fail: 401 UNAUTHORIZED
 
     ```
-- <h3>Reset password</h2>
-  Method: PUT
+- <h3>Reset password Request</h2>
+  Method: POST
 
-  URL: http://127.0.0.1:5000/register/reset-password
-  
-  header: Authorization Token
+  URL: http://127.0.0.1:5000/register/reset-password-request
+
 
   Input Look likes:
   ```json
   {
-    "username": "demo2",
-    "new_password": "demo2"
+    "username": "Abdullah"
   }
   ```
+  If Username is correct then A token will send to user mail.
+
+
+
+- <h3>Reset-password after getting token</h2>
+  Method: POST
+
+  URL: http://127.0.0.1:5000/register/reset-password/{token}
+
+
+  Input New Password Look likes:
+  ```json
+  {
+    "new_password": "string"
+  }
+  ```
+  If token is correct then password wil rest successfully.
+
 
 
 ### Design Database Schema
