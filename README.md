@@ -22,7 +22,7 @@ Before running the application, make sure you have installed python in your mach
 
 1. Clone the project
     ```bash
-    git clone https://github.com/Md-Roni024/Flask_Assignment
+    git clone https://github.com/Md-Roni024/Flask_API_Assignment
     ```  
 
 2. Go to the project directory and install dependencies
