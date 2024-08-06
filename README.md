@@ -32,7 +32,7 @@ Before running the application, make sure you have installed python in your mach
     .\venv\Scripts\activate
     ```
 
-3. Install dependecies
+3. Install dependencies
     ```
     pip install -r requirements.txt
     ```
@@ -108,7 +108,7 @@ For managing user information I build 5 endpoints.They are responsible for regis
   <h5>Content-Type: application/json</h5>
   <h5>Method: GET</h5>
   <h5>URL: http://127.0.0.1:5000/users</h5>
-
+  <h5>Only Role: Admin user can have access this route</h5>
   Success Response:
   ```json
     {
@@ -154,6 +154,7 @@ For managing user information I build 5 endpoints.They are responsible for regis
 - <h3>Get Single User By ID</h3>
   <h5>Content-Type: application/json</h5>
   <h5>Method: GET</h5>
+  <h5>Role: Admin user can access anyone info, but Role:User who are logedin can access own info. </h5>
   <h5>URL: http://127.0.0.1:5000/users/9</h5>
 
   Success Response:
@@ -188,6 +189,7 @@ For managing user information I build 5 endpoints.They are responsible for regis
   <h5>Content-Type: application/json</h5>
   <h5>Method: DELETE</h5>
   <h5>URL: http://127.0.0.1:5000/users/7</h5>
+  <h5>Only Role: Admin have access this route </h5>
 
   Success Response:
   ```json
@@ -203,6 +205,51 @@ For managing user information I build 5 endpoints.They are responsible for regis
     
     Success: 200 OK
     Fail: 404 NOT FOUND
+
+    ```
+
+
+  - <h3>Update User By ID</h3>
+  <h5>Content-Type: application/json</h5>
+  <h5>Method: PUT</h5>
+  <h5>URL: http://127.0.0.1:5000/users/7</h5>
+  <h5>Role: Admin user can update anyone info, but Role:User who are logedin can update own info.</h5>
+
+  Input:
+  ```JSON
+  {
+    "first_name": "string",
+    "last_name": "string",
+    "email": "string",
+    "role": "string"
+  }
+  ```
+
+  Success Response:
+  ```json
+    {
+    "id": 0,
+    "username": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "email": "string",
+    "role": "string",
+    "created_date": "2024-08-06T07:26:33.031Z",
+    "updated_date": "2024-08-06T07:26:33.031Z",
+    "active": true
+  }
+
+  ```
+
+  <h5>Status Code</h5>
+
+    ```
+    
+    Success: 200 OK
+    Fail:
+    400	Bad request
+    403	Forbidden
+    404	User not found
 
     ```
 
